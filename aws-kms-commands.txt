@@ -1,0 +1,10 @@
+Commands
+How to encrypt data: 
+1) aws kms encrypt --key-id arn:aws:kms:xxxx --plaintext "My name is Billa" --query CiphertextBlob --output text | base64 -D > mydata.txt
+
+2) aws kms encrypt --key-id arn:aws:kms:xxxxx--plaintext fileb://abcd.txt --output text --query CiphertextBlob | base64 --decode > abcd-encrypted.txt
+
+How to decrypt it: 
+1) aws kms decrypt --ciphertext-blob fileb://mydata.txt --output text --query Plaintext | base64 -D
+
+2) aws kms decrypt --ciphertext-blob fileb://abcd-encrypted.txt --output text --query Plaintext | base64 -D
